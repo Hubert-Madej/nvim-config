@@ -1,4 +1,4 @@
-return { 
+return {
   "rose-pine/neovim",
   name = "rose-pine",
   config = function()
@@ -8,6 +8,6 @@ return {
       transparency = true,
      }
     })
-    vim.cmd.colorscheme "rose-pine" 
+    vim.cmd.colorscheme "rose-pine"
   end
 }
