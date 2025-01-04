@@ -7,7 +7,23 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    vim.keymap.set('n', '<C-b>', ':Neotree filesystem show left<CR>', {})
-    vim.api.nvim_set_keymap('n', '<leader>w', '<C-w>w', { noremap = true, silent = true })
-  end
+    require("neo-tree").setup({
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          hide_by_name = {
+            ".git",
+            ".DS_Store",
+            "__pycache__",
+          },
+          never_show = {},
+        },
+      },
+    })
+    vim.keymap.set("n", "<C-b>", ":Neotree filesystem show left<CR>", {})
+    vim.api.nvim_set_keymap("n", "<leader>w", "<C-w>w", { noremap = true, silent = true })
+  end,
 }

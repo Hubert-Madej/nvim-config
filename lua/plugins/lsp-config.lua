@@ -10,7 +10,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         -- Supported LS's: https://github.com/williamboman/mason-lspconfig.nvim
-        ensure_installed = { "lua_ls", "ts_ls", "gopls", "clangd" }
+        ensure_installed = { "lua_ls", "ts_ls", "gopls", "clangd", "pylsp" }
       })
     end
   },
@@ -36,6 +36,19 @@ return {
 
       lspconfig.clangd.setup({
         capabilities = capabilities
+      })
+
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                maxLineLength = 120
+              }
+            }
+          }
+        }
       })
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
