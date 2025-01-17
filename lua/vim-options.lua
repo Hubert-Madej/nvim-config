@@ -4,5 +4,4 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
 vim.g.mapleader = " "
-
-
+vim.cmd("set t_Co=16")
